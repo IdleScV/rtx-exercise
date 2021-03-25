@@ -1,5 +1,4 @@
 import {useState} from 'react'
-import {connect} from 'react-redux'
 
 function Search ({handleSearch}){
     const [searchBar, searchBarSet] = useState("")
@@ -38,4 +37,4 @@ function Search ({handleSearch}){
     )
 }
 
-export default connect()(Search)
+export default Search

@@ -1,14 +1,6 @@
-import {useEffect} from 'react';
 import {connect} from 'react-redux'
 
 function Results ({result, dispatch}){
-
-    useEffect(() => {
-        // console.log(result)
-        return () => {
-            
-        }
-    }, [result])
 
     const handleUserSave = (hit) => {
         let payload = hit
