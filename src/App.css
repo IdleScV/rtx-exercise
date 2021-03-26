@@ -19,8 +19,14 @@
 
 .Saved{
   border: solid rgb(32, 32, 32) 2px;
+  display: flex;
 }
 
 #table{
+  /* border: solid rgb(53, 53, 53) 2px; */
   margin: 0px auto;
+}
+th{
+  border-bottom: solid rgb(53, 53, 53) 2px;
+
 }

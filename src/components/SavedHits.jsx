@@ -1,19 +1,22 @@
 import {connect} from 'react-redux'
 
-function SavedHits ({hits}) {
-  
+function SavedHits ({hits, terms}) {
+
     return(
         <div className="Saved">
-            <h3>Saved Stories</h3>
+          
             <table id="table">
                 <thead>
+                    <tr>
+                        <th>Saved Stories</th>
+                    </tr>
                     <tr>
                         <th>Title</th>
                         <th>Date</th>
                     </tr>
                 </thead>
                 <tbody>
-            {
+                {
                     hits.map((hit, i) => 
                         <tr key={i} className="hit">
                             <td>
@@ -26,13 +29,30 @@ function SavedHits ({hits}) {
                 }
                 </tbody>
             </table>
+            <table id="table">
+                <thead>
+                    <tr>
+                        <th>Previous Search Terms</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {
+                    terms.map((term, i) => 
+                        <tr key={i}>
+                            <td>{term}</td>
+                        </tr>
+                    )
+                }
+                </tbody>
+            </table>
         </div>
     )
 }
 
 const mapStateToProps = (state) => {
     return{
-        hits: state
+        hits: state.hits,
+        terms: state.terms
     }
 }
 

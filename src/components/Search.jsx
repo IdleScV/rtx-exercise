@@ -1,6 +1,7 @@
 import {useState} from 'react'
+import {connect} from 'react-redux'
 
-function Search ({handleSearch}){
+function Search ({handleSearch, dispatch}){
     const [searchBar, searchBarSet] = useState("")
     const [currentSearchTerm, currentSearchTermSet] = useState(undefined)
     const [currentPage, currentPageSet] = useState(0)
@@ -10,6 +11,8 @@ function Search ({handleSearch}){
     }
 
     const handleSearchSubmit = () => {
+        let payload = searchBar
+        dispatch({type: "ADD_TERM", payload})
         currentSearchTermSet(searchBar)
         currentPageSet(0)
         handleSearch(searchBar)
@@ -37,4 +40,10 @@ function Search ({handleSearch}){
     )
 }
 
-export default Search
+const mapDispatchToProps = (dispatch) => {
+    return{
+        handleTermSave: (term) => dispatch({type: "ADD_TERM", payload: term})
+    }
+}
+
+export default connect(mapDispatchToProps)(Search)

@@ -4,12 +4,12 @@ function Results ({result, dispatch}){
 
     const handleUserSave = (hit) => {
         let payload = hit
-        dispatch({type: "ADD", payload})
+        dispatch({type: "ADD_HIT", payload})
     }
 
     return(
         <div className="Results">
-            <h3>Current Search {`${result.page} / ${result.nbPages}`}</h3>
+            <h3>Current Search Page: {`${result.page} / ${result.nbPages}`}</h3>
             <table id="table">
                 <thead>
                     <tr>
@@ -41,7 +41,7 @@ function Results ({result, dispatch}){
 
 const mapDispatchToProps = (dispatch) => {
     return{
-        handleUserSave: (hit) => dispatch({type: "ADD", payload: hit})
+        handleUserSave: (hit) => dispatch({type: "ADD_HIT", payload: hit})
     }
 }
 
